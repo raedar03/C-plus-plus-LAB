@@ -1,9 +1,3 @@
-## Student Name: Rehan Rahim
-## Enrollment No: A91005225069
-## Department: B.Tech (CSE)
-## 2nd Year, 3rd Semester
-## Session: 2025-2029
-
 ### C++ LAB CLASS DAY 1 (19.08.2026):
 
 #### Questions:
