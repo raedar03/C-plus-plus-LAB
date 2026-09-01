@@ -2,7 +2,7 @@
 #include <iostream> 
 using namespace std;
 int main() {
-    int UserNum, RemNum = 0, RevNum, TempNum; //declaring variables.
+    int UserNum, RemNum = 0, RevNum = 0, TempNum; //declaring variables.
     cout << "Enter A Number: ";
     cin >> UserNum;
     TempNum = UserNum;
