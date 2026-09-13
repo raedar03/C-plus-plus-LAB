@@ -1,124 +1,138 @@
 #include  <iostream>
 using namespace std;
 
+void display(int A[10][10], int row, int column) {
+	for (int i=0;i<row;i++) {
+        for (int j=0;j<column;j++) {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+	}
+}
+
 void add_matrix(int A[10][10], int B[][10], int C[10][10], int row, int column) {
-	int i = 0, j = 0;
 	if (row!=column) {
 		printf("Rows and Columns Must Be Same");
 	}
 	else {
-		for (i; i<r; i++) {
-			for (j; j<c; j++) {
+		for (int i=0; i<row; i++) {
+			for (int j=0; j<column; j++) {
 				C[i][j] = A[i][j]+B[i][j];
 			}
-		}	
+		}
 	}
-	cout << C;
+	display(C, row, column);
 }
 
 void sub_matrix(int A[10][10], int B[10][10], int C[10][10], int row, int column) {
-	int i = 0, j = 0;
 	if (row!=column) {
 		printf("Rows and Columns Must Be Same");
 	}
 	else {
-		for (i; i<r; i++) {
-			for (j; j<c; j++) {
+		for (int i = 0; i<row; i++) {
+			for (int j = 0; j<column; j++) {
 				C[i][j] = A[i][j]-B[i][j];
 			}
-		}	
+		}
 	}
-	cout << C;
+	display(C, row, column);
 }
 
 void mult_matrix(int A[10][10], int B[10][10], int C[10][10], int row1, int column1, int column2) {
-	
+	if (row1!=column2) {
+        cout << "Matrix Multiplication Not Possible";
+	}
+	else {
+        for (int i=0; i<row1; i++) {
+            for (int j=0; j<column2; j++) {
+                C[i][j] = 0;
+                for (int k=0; k<column1;k++) {
+                    C[i][j] += A[i][k]*B[k][j];
+                }
+            }
+        }
+	}
+	display(C, row1, column2);
 }
 
-void trans_matrix(int A[10][10], int B[10][10], int T[10][10], int row, int column) {
-	int i = 0; j = 0;
-	for (i; i<row; i++) {
-		for (l; j<column; j++) {
+void trans_matrix(int A[10][10], int B[10][10], int T[10][10], int row1, int column1, int row2, int column2) {
+	for (int i=0; i<row1; i++) {
+		for (int j=0; j<column1; j++) {
 			T[i][j] = A[j][i];
 		}
 	}
-	cout << T;
-	for (i; i<row; i++) {
-		for (l; j<column; j++) {
+	display(T, row2, column2);
+	for (int i=0; i<row2; i++) {
+		for (int j=0; j<column2; j++) {
 			T[i][j] = B[j][i];
 		}
 	}
-	cout << T;
-}
-
-void display_matrix() {
-	
+	display(T, row2, column2);
 }
 
 int main() {
-	int A[10][10], int B[10][10], int row1, row2, column1, column2, i = 0, j = 0, flag = 1,ch;
-	cout << "Enter Rows for Matrix A: "; 
+	int A[10][10], B[10][10], C[10][10], row1, row2, column1, column2, flag = 1,ch;
+	cout << "Enter Rows for Matrix A: ";
 	cin >> row1;
-	cout << "Enter Rows for Matrix B: ";
-	cin >> row2;
 	cout << "Enter Columns for Matrix A: ";
 	cin >> column1;
+	cout << "Enter Rows for Matrix B: ";
+	cin >> row2;
 	cout << "Enter Columns for Matrix B: ";
 	cin >> column2;
-	
-	cout << "Enter Elements for A: "
-	for (i; i<row; i++) {
-		for (l; j<column; j++) {
-			cin >> A[j][i];
+
+	cout << "Enter Elements for A: ";
+	for (int i = 0; i<row1; i++) {
+		for (int j = 0; j<column1; j++) {
+			cin >> A[i][j];
 		}
 	}
-	cout << "Enter Elements for B: "
-	for (i; i<row; i++) {
-		for (l; j<column; j++) {
-			cin >> B[j][i];
+
+	cout << "Enter Elements for B: ";
+	for (int i = 0; i<row2; i++) {
+		for (int j = 0; j<column2; j++) {
+			cin >> B[i][j];
 		}
 	}
-	
+
 	do {
-		cout << "---MENU---"; endl;
-		cout << "1. Addition"; endl;
-		cout << "2. Subtraction"; endl;
-		cout << "3. Multiplication"; endl;
-		cout << "4. Transpose"; endl;
-		cout << "5. Display"; endl;
-		cout << "0. Exit"; endl;
-		cout << "Enter Choice: "
+		cout << "---MENU---" << endl;
+		cout << "1. Addition" << endl;
+		cout << "2. Subtraction" << endl;
+		cout << "3. Multiplication" << endl;
+		cout << "4. Transpose" << endl;
+		cout << "0. Exit" << endl;
+		cout << "Enter Choice: ";
 		cin >> ch;
 		switch(ch) {
 			case 0: {
-				
+				flag = 0;
 				break;
 			}
 			case 1: {
-				
+				add_matrix(A, B, C, row1, column1);
 				break;
 			}
 			case 2: {
-				
+				sub_matrix(A, B, C, row1, column1);
 				break;
 			}
 			case 3: {
-				
+				mult_matrix(A,B,C,row1,column1,column2);
 				break;
 			}
 			case 4: {
-				
+				trans_matrix(A, B, C, row1, column1, row2, column2);
 				break;
 			}
-			case 5: {
-				
-				break;
+			default: {
+                cout << "Invalid Choice.";
 			}
 		}
 		cout << "Do You Want to Continue? (1/0)";
 		cin >> flag;
-	} while (flag)
-	
-	
+	} while (flag);
+
+
 	return 0;
 }
