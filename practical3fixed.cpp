@@ -12,7 +12,7 @@ void display(int A[][10], int row, int column) {
 
 void add_matrix(int A[][10], int B[][10], int C[][10], int row1, int column1, int row2, int column2) {
 	if (row1!=row2 || column1!=column2) {
-		printf("Rows and Columns Must Be Same.\n");
+		printf("Rows and Columns Must Be Same.\n"); // change this to cout.
 	}
 	else {
 		for (int i=0; i<row1; i++) {
