@@ -23,7 +23,7 @@ class Person
 			cout << endl;
 			
 		}
-		void out() {
+		void out() { //part b
 			hra = basic*0.5;
 			da = basic*0.4;
 			ta = basic*0.1;
@@ -41,7 +41,7 @@ class Person
 			
 			
 		}
-		inline static void young_eldest(Person p[], int n)
+		inline static void young_eldest(Person p[], int n) //part a
 		{
 			int young = 0, eldest = 0;
 			for (int i = 0; i<n; i++)
@@ -67,9 +67,9 @@ class Person
 int main() {
 	int flag;
 	Person p[10];
-	Person::young_eldest(p,10);
+	Person::young_eldest(p,10); //part a output.
 	cout << endl;
-	cout << "Do You Want Salary Details (1/0): ";
+	cout << "Do You Want Salary Details (1/0): "; //part b output as per user choice.
 	cin >> flag;
 	if (flag==1) 
 	{
