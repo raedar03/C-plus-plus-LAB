@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class Complex 
+class Complex
 {
 	private: float real, imag;
 	public:
@@ -60,31 +60,25 @@ int main()
 	cout << "Object 2 Input: " << endl;
 	c2.input();
 	cout << "Before Applying Operations: " << endl;
-	c1.display();
-	c2.display();
-	
+	cout << "Object 1: "; c1.display();
+	cout << "Object 2: "; c2.display();
+
 	cout << "After Applying Unary Increment Operation: " << endl;
 	++c1;
 	++c2;
-	cout << "Object 1: " << endl;
-	c1.display();
-	cout << "Object 2: " << endl;
-	c2.display();
-	
+	cout << "Object 1: "; c1.display();
+	cout << "Object 2: "; c2.display();
+
 	cout << "After Applying Unary Decrement Operation: " << endl;
 	--c1;
 	--c2;
-	cout << "Object 1: " << endl;
-	c1.display();
-	cout << "Object 2: " << endl;
-	c2.display();
-	
+	cout << "Object 1: "; c1.display();
+	cout << "Object 2: "; c2.display();
+
 	sum = c1 + c2;
-	cout << "Sum: " << endl;
-	sum.display();
+	cout << "Sum: "; sum.display();
 	diff = c1-c2;
-	cout << "Difference: " << endl;
-	diff.display();
+	cout << "Difference: "; diff.display();
 
 	return 0;
 }
